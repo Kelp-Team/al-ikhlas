@@ -20,10 +20,12 @@ export function Footer() {
     <footer className="bg-charcoal py-10 md:py-16 px-4 md:px-12">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12 pb-8 md:pb-12 border-b border-cream/8 mb-8">
         <div>
-          <div className="font-serif text-cream text-xl mb-3">Masjid Al-Hikmah</div>
-          <p className="text-cream/35 text-sm leading-relaxed max-w-[260px]">
-            Connecting the Subang Jaya Muslim community through prayer, education,
-            and service since 2003.
+          <div className="font-serif text-cream text-xl mb-3">
+            Masjid Al-Ikhlas Seksyen 13
+          </div>
+          <p className="text-cream/35 text-sm leading-relaxed max-w-65">
+            Connecting the Seksyen 13, Shah Alam Muslim community through
+            prayer, education, and service since 2013.
           </p>
         </div>
 
@@ -46,8 +48,12 @@ export function Footer() {
       </div>
 
       <div className="flex justify-between items-center flex-wrap gap-3">
-        <div className="text-cream/25 text-sm">© 2026 Masjid Al-Hikmah · Built for RC26</div>
-        <div className="font-serif text-cream/20 text-lg tracking-wide">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ</div>
+        <div className="text-cream/25 text-sm">
+          © 2026 Masjid Al-Ikhlas Seksyen 13 · Built for RC26
+        </div>
+        <div className="font-serif text-cream/20 text-lg tracking-wide">
+          بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ
+        </div>
       </div>
     </footer>
   );

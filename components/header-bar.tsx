@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const navLinks = [
   { href: "#prayers", label: "Prayer Times" },
@@ -9,13 +10,14 @@ const navLinks = [
 
 export function HeaderBar() {
   return (
-    <nav className="fixed top-0 left-0 right-0 z-10 bg-background border-b border-parchment px-12 h-[60px] flex items-center gap-10">
-      <Link
-        href="/"
-        className="flex items-center gap-2 mr-auto font-serif text-[1.1rem] font-semibold tracking-[0.06em] text-forest"
-      >
-        <span className="w-1.5 h-1.5 bg-gold rounded-full" />
-        Masjid Al-Hikmah
+    <nav className="fixed top-0 left-0 right-0 z-10 px-12 h-14 flex items-center gap-10">
+      <Link href="/" className="mr-auto">
+        <Image
+          src="/logo.png"
+          alt="Masjid Al-Ikhlas Seksyen 13"
+          height={42}
+          width={42}
+        />
       </Link>
 
       <div className="flex gap-8">
@@ -23,7 +25,7 @@ export function HeaderBar() {
           <Link
             key={link.href}
             href={link.href}
-            className="text-[var(--text-2)] hover:text-forest text-[0.78rem] tracking-[0.08em] transition-colors no-underline"
+            className="text-(--text-2) hover:text-forest text-[0.78rem] tracking-[0.08em] transition-colors no-underline"
           >
             {link.label}
           </Link>
@@ -32,7 +34,7 @@ export function HeaderBar() {
 
       <Link
         href="#"
-        className="bg-forest text-cream hover:bg-forest-mid text-[0.75rem] tracking-[0.1em] px-5 py-2 rounded-sm no-underline transition-colors"
+        className="bg-forest text-cream hover:bg-forest-mid text-[0.75rem] tracking-widest px-5 py-2 rounded-sm no-underline transition-colors"
       >
         Declare Mosque
       </Link>
