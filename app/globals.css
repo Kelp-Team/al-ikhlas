@@ -45,6 +45,19 @@
   --radius-2xl: calc(var(--radius) + 8px);
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
+
+  /* Mosque theme colors */
+  --color-cream: var(--cream);
+  --color-warm: var(--warm);
+  --color-parchment: var(--parchment);
+  --color-sand: var(--sand);
+  --color-clay: var(--clay);
+  --color-forest: var(--forest);
+  --color-forest-mid: var(--forest-mid);
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-charcoal: var(--charcoal);
+  --color-brown: var(--brown);
 }
 
 :root {
@@ -80,6 +93,22 @@
   --sidebar-accent-foreground: oklch(0.21 0.006 285.885);
   --sidebar-border: oklch(0.92 0.004 286.32);
   --sidebar-ring: oklch(0.705 0.015 286.067);
+
+  /* Mosque theme colors - Light */
+  --cream: #F8F4EE;
+  --warm: #F0EAE0;
+  --parchment: #E6DDD0;
+  --sand: #C8B89A;
+  --clay: #A08060;
+  --forest: #1E3A2F;
+  --forest-mid: #2C5040;
+  --gold: #B8943C;
+  --gold-light: #D4AF6A;
+  --charcoal: #1A1410;
+  --brown: #3A2A1A;
+  --text: #1A1410;
+  --text-2: #5A4A38;
+  --text-3: #8A7A68;
 }
 
 .dark {
@@ -114,6 +143,22 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.552 0.016 285.938);
+
+  /* Mosque theme colors - Dark */
+  --cream: oklch(0.97 0.01 80);
+  --warm: oklch(0.30 0.02 280);
+  --parchment: oklch(0.25 0.02 280);
+  --sand: oklch(0.45 0.04 70);
+  --clay: oklch(0.40 0.05 60);
+  --forest: oklch(0.20 0.04 170);
+  --forest-mid: oklch(0.25 0.04 165);
+  --gold: oklch(0.65 0.12 50);
+  --gold-light: oklch(0.72 0.14 55);
+  --charcoal: oklch(0.08 0.01 280);
+  --brown: oklch(0.20 0.04 50);
+  --text: oklch(0.97 0.01 80);
+  --text-2: oklch(0.75 0.03 80);
+  --text-3: oklch(0.60 0.03 80);
 }
 
 @layer base {
