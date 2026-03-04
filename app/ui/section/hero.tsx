@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { PrayerTimes } from "./prayer-times";
 
 interface Prayer {
   name: string;
@@ -40,7 +41,9 @@ function fmt(h: number, m: number) {
 }
 
 export function Hero() {
-  const [activePrayer, setActivePrayer] = useState<string | null>(() => getActive());
+  const [activePrayer, setActivePrayer] = useState<string | null>(() =>
+    getActive(),
+  );
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -50,7 +53,7 @@ export function Hero() {
   }, []);
 
   return (
-    <section className="grid grid-cols-2 min-h-[88vh]">
+    <section className="grid grid-cols-2 min-h-screen">
       <div className="bg-forest px-14 py-20 flex flex-col justify-between relative overflow-hidden">
         <svg
           className="absolute top-0 right-0 w-[60%] h-full opacity-[0.06] pointer-events-none"
@@ -69,9 +72,24 @@ export function Hero() {
             strokeWidth="0.8"
             fill="none"
           />
-          <circle cx="150" cy="30" r="10" stroke="white" strokeWidth="1" fill="none" />
+          <circle
+            cx="150"
+            cy="30"
+            r="10"
+            stroke="white"
+            strokeWidth="1"
+            fill="none"
+          />
           <circle cx="150" cy="30" r="3" fill="white" />
-          <line x1="150" y1="0" x2="150" y2="600" stroke="white" strokeWidth="0.3" strokeDasharray="4 6" />
+          <line
+            x1="150"
+            y1="0"
+            x2="150"
+            y2="600"
+            stroke="white"
+            strokeWidth="0.3"
+            strokeDasharray="4 6"
+          />
         </svg>
 
         <div className="flex items-center gap-2.5 text-gold-light text-[0.68rem] tracking-[0.22em] uppercase">
@@ -113,7 +131,8 @@ export function Hero() {
         <div
           className="w-full h-full"
           style={{
-            background: "linear-gradient(160deg, #C8B89A 0%, #E6DDD0 40%, #D4C4A8 70%, #A08060 100%)",
+            background:
+              "linear-gradient(160deg, #C8B89A 0%, #E6DDD0 40%, #D4C4A8 70%, #A08060 100%)",
           }}
         >
           <svg
@@ -123,43 +142,87 @@ export function Hero() {
             fill="none"
             className="absolute opacity-[0.18]"
           >
-            <ellipse cx="300" cy="180" rx="200" ry="180" stroke="#3A2A1A" strokeWidth="2" fill="none" />
-            <path d="M100 180 L100 600 L500 600 L500 180" stroke="#3A2A1A" strokeWidth="1.5" fill="none" />
-            <line x1="300" y1="0" x2="300" y2="700" stroke="#3A2A1A" strokeWidth="0.5" strokeDasharray="6 6" />
-            <path d="M200 600 L200 400 Q300 320 400 400 L400 600" stroke="#3A2A1A" strokeWidth="1.5" fill="none" />
-            <line x1="100" y1="300" x2="500" y2="300" stroke="#3A2A1A" strokeWidth="0.5" />
-            <line x1="100" y1="420" x2="500" y2="420" stroke="#3A2A1A" strokeWidth="0.5" />
-            <line x1="150" y1="180" x2="150" y2="600" stroke="#3A2A1A" strokeWidth="0.4" />
-            <line x1="250" y1="180" x2="250" y2="600" stroke="#3A2A1A" strokeWidth="0.4" />
-            <line x1="350" y1="180" x2="350" y2="600" stroke="#3A2A1A" strokeWidth="0.4" />
-            <line x1="450" y1="180" x2="450" y2="600" stroke="#3A2A1A" strokeWidth="0.4" />
+            <ellipse
+              cx="300"
+              cy="180"
+              rx="200"
+              ry="180"
+              stroke="#3A2A1A"
+              strokeWidth="2"
+              fill="none"
+            />
+            <path
+              d="M100 180 L100 600 L500 600 L500 180"
+              stroke="#3A2A1A"
+              strokeWidth="1.5"
+              fill="none"
+            />
+            <line
+              x1="300"
+              y1="0"
+              x2="300"
+              y2="700"
+              stroke="#3A2A1A"
+              strokeWidth="0.5"
+              strokeDasharray="6 6"
+            />
+            <path
+              d="M200 600 L200 400 Q300 320 400 400 L400 600"
+              stroke="#3A2A1A"
+              strokeWidth="1.5"
+              fill="none"
+            />
+            <line
+              x1="100"
+              y1="300"
+              x2="500"
+              y2="300"
+              stroke="#3A2A1A"
+              strokeWidth="0.5"
+            />
+            <line
+              x1="100"
+              y1="420"
+              x2="500"
+              y2="420"
+              stroke="#3A2A1A"
+              strokeWidth="0.5"
+            />
+            <line
+              x1="150"
+              y1="180"
+              x2="150"
+              y2="600"
+              stroke="#3A2A1A"
+              strokeWidth="0.4"
+            />
+            <line
+              x1="250"
+              y1="180"
+              x2="250"
+              y2="600"
+              stroke="#3A2A1A"
+              strokeWidth="0.4"
+            />
+            <line
+              x1="350"
+              y1="180"
+              x2="350"
+              y2="600"
+              stroke="#3A2A1A"
+              strokeWidth="0.4"
+            />
+            <line
+              x1="450"
+              y1="180"
+              x2="450"
+              y2="600"
+              stroke="#3A2A1A"
+              strokeWidth="0.4"
+            />
           </svg>
-        </div>
-
-        <div className="absolute bottom-12 left-[-36px] bg-cream border border-parchment p-6 min-w-[220px] shadow-[0_20px_60px_rgba(26,20,16,0.15)]">
-          <div className="text-[var(--gold)] text-[0.62rem] tracking-[0.2em] uppercase mb-3.5">
-            Today&apos;s Prayers
-          </div>
-          <div className="flex flex-col gap-2.5">
-            {prayers.map((p) => {
-              const f = fmt(p.h, p.m);
-              const isActive = p.name === activePrayer;
-              return (
-                <div
-                  key={p.name}
-                  className={`flex justify-between items-center gap-5 ${
-                    isActive ? "text-forest font-medium" : ""
-                  }`}
-                >
-                  <span className={`text-sm ${isActive ? "text-forest" : "text-[var(--text-2)]"}`}>
-                    {p.name}
-                  </span>
-                  <span className={`font-serif text-lg ${isActive ? "text-forest" : "text-[var(--text)]"}`}>
-                    {f.h}:{f.m} {f.ap}
-                  </span>
-                </div>
-              );
-            })}
+          <div className="absolute bottom-0 w-full">
+            <PrayerTimes />
           </div>
         </div>
       </div>

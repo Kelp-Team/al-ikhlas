@@ -9,7 +9,7 @@ const navLinks = [
 
 export function HeaderBar() {
   return (
-    <nav className="sticky top-0 z-[200] bg-cream border-b border-parchment px-12 h-[60px] flex items-center gap-10">
+    <nav className="fixed top-0 left-0 right-0 z-10 bg-background border-b border-parchment px-12 h-[60px] flex items-center gap-10">
       <Link
         href="/"
         className="flex items-center gap-2 mr-auto font-serif text-[1.1rem] font-semibold tracking-[0.06em] text-forest"

@@ -95,36 +95,36 @@ export function PrayerTimes() {
   }, []);
 
   return (
-    <section className="grid grid-cols-[340px_1fr] min-h-[520px]" id="prayers">
-      <div className="bg-forest p-12 flex flex-col justify-between">
+    <section className="grid md:grid-cols-[340px_1fr] min-h-100" id="prayers">
+      <div className="bg-forest p-6 md:p-12 flex flex-col justify-between">
         <div>
           <div className="flex items-center gap-2.5 text-gold-light text-[0.65rem] tracking-[0.22em] uppercase mb-2.5">
             <span className="w-5 h-px bg-gold" />
             Daily Schedule
           </div>
-          <h2 className="text-cream text-3xl font-light leading-tight">Prayer Times</h2>
+          <h2 className="text-cream text-2xl md:text-3xl font-light leading-tight">Prayer Times</h2>
           <p className="text-sand font-serif italic text-sm mt-2">{dateStr}</p>
         </div>
 
-        <div className="pt-9 border-t border-cream/12">
+        <div className="pt-6 md:pt-9 border-t border-cream/12">
           <div className="text-gold text-[0.62rem] tracking-[0.2em] uppercase mb-2">Next Prayer</div>
-          <div className="font-serif text-cream text-xl">
+          <div className="font-serif text-cream text-lg md:text-xl">
             {nextPrayer.name} · {nextPrayer.time}
           </div>
-          <div className="font-serif text-gold-light text-[2.6rem] font-light tracking-wide leading-none mt-1">
+          <div className="font-serif text-gold-light text-2xl md:text-[2.6rem] font-light tracking-wide leading-none mt-1">
             {countdown}
           </div>
         </div>
       </div>
 
-      <div className="bg-cream grid grid-cols-5">
+      <div className="bg-cream grid grid-cols-2 md:grid-cols-5">
         {prayers.map((p) => {
           const f = fmt(p.h, p.m);
           const isActive = p.name === activePrayer;
           return (
             <div
               key={p.name}
-              className={`p-12 pb-10 border-r border-parchment flex flex-col gap-4 cursor-default transition-colors relative ${
+              className={`p-4 md:p-12 pb-10 border-r border-parchment flex flex-col gap-4 cursor-default transition-colors relative ${
                 isActive ? "bg-warm" : "hover:bg-warm"
               }`}
             >

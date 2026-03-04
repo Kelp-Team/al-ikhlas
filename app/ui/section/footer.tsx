@@ -17,8 +17,8 @@ const footerCols = [
 
 export function Footer() {
   return (
-    <footer className="bg-charcoal px-12 py-16">
-      <div className="grid grid-cols-4 gap-12 pb-12 border-b border-cream/8 mb-8">
+    <footer className="bg-charcoal py-10 md:py-16 px-4 md:px-12">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12 pb-8 md:pb-12 border-b border-cream/8 mb-8">
         <div>
           <div className="font-serif text-cream text-xl mb-3">Masjid Al-Hikmah</div>
           <p className="text-cream/35 text-sm leading-relaxed max-w-[260px]">

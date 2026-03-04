@@ -34,7 +34,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased h-full overflow-hidden`}
       >
         <HeaderBar/>
-        <main>{children}</main>
+        {children}
       </body>
     </html>
   );
