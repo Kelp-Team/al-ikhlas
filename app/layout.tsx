@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import { HeaderBar } from "@/components/header-bar";
 import { Providers } from "@/components/providers";
 
 const jetbrainsMono = JetBrains_Mono({
@@ -38,7 +37,6 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased h-full overflow-hidden`}
       >
         <Providers>
-          <HeaderBar />
           {children}
         </Providers>
       </body>

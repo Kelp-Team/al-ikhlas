@@ -1,12 +1,12 @@
 import { betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
-import { admin, nextCookies } from "better-auth/plugins";
+import { admin } from "better-auth/plugins";
 import { db } from "@/lib/db";
 import * as schema from "@/db/schema";
 
 export const auth = betterAuth({
   database: drizzleAdapter(db, {
-    provider: "sqlite",
+    provider: "pg",
     schema,
   }),
   emailAndPassword: {
@@ -29,6 +29,5 @@ export const auth = betterAuth({
       defaultRole: "user",
       adminRoles: ["admin"],
     }),
-    nextCookies(),
   ],
 });
