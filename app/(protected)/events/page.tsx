@@ -1,9 +1,17 @@
+import { redirect } from "next/navigation";
+import { getServerSession } from "@/lib/auth-server";
 import { getAllEvents } from "@/lib/queries/events";
 import { EventList } from "./event-list";
 import { EventForm } from "./event-form";
 import { Separator } from "@/components/ui/separator";
 
 export default async function AdminEventsPage() {
+  const session = await getServerSession();
+
+  if (!session || session.user.role !== "admin") {
+    redirect("/dashboard");
+  }
+
   const events = await getAllEvents();
 
   return (
