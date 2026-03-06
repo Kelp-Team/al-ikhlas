@@ -17,7 +17,9 @@ export async function Events() {
             <span className="w-5 h-px bg-secondary" />
             Community Programmes
           </div>
-          <h2 className="text-foreground text-3xl font-light">Upcoming Events</h2>
+          <h2 className="text-foreground text-3xl font-light">
+            Upcoming Events
+          </h2>
         </div>
         <Link
           href="#"
@@ -29,7 +31,7 @@ export async function Events() {
 
       <div className="grid md:grid-cols-2 gap-0.5 bg-border">
         {featuredEvent && (
-          <div className="bg-primary p-6 md:p-12 flex flex-col justify-between min-h-[400px] md:min-h-[480px] relative overflow-hidden">
+          <div className="bg-primary p-6 md:p-12 flex flex-col justify-between min-h-100 md:min-h-120 relative overflow-hidden">
             <svg
               className="absolute top-0 right-0 w-[55%] h-full opacity-[0.05] pointer-events-none"
               viewBox="0 0 300 500"
@@ -41,7 +43,14 @@ export async function Events() {
                 strokeWidth="1"
                 fill="none"
               />
-              <circle cx="150" cy="20" r="8" stroke="white" strokeWidth="0.8" fill="none" />
+              <circle
+                cx="150"
+                cy="20"
+                r="8"
+                stroke="white"
+                strokeWidth="0.8"
+                fill="none"
+              />
             </svg>
             <div className="font-serif text-primary-foreground/15 text-4xl md:text-[5rem] absolute top-5 right-6 md:right-8 leading-none">
               {featuredEvent.dateNum}
@@ -58,7 +67,7 @@ export async function Events() {
               </h3>
             </div>
 
-            <p className="text-primary-foreground/55 text-sm leading-relaxed max-w-[340px]">
+            <p className="text-primary-foreground/55 text-sm leading-relaxed max-w-85">
               {featuredEvent.description}
             </p>
 
@@ -114,11 +123,12 @@ export async function Events() {
               key={event.id}
               className="bg-muted p-6 md:p-9 flex flex-col gap-3 md:gap-4 transition-colors hover:bg-muted cursor-pointer"
             >
-              <div className="font-serif text-muted-foreground text-base">{event.displayNumber}</div>
               <div className="text-secondary text-[0.62rem] tracking-[0.18em] uppercase mt-auto">
-                {event.category}
+                {event.category} - {event.date}
               </div>
-              <div className="font-serif text-foreground text-xl leading-tight">{event.title}</div>
+              <div className="font-serif text-foreground text-xl leading-tight">
+                {event.title}
+              </div>
               <div className="flex justify-between items-center pt-4 border-t border-border">
                 <div className="text-muted-foreground text-sm">
                   {event.time} · {event.location}
