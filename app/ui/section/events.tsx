@@ -52,10 +52,6 @@ export async function Events() {
                 fill="none"
               />
             </svg>
-            <div className="font-serif text-primary-foreground/15 text-4xl md:text-[5rem] absolute top-5 right-6 md:right-8 leading-none">
-              {featuredEvent.dateNum}
-            </div>
-
             <div className="flex items-center gap-2 text-secondary text-[0.62rem] tracking-[0.22em] uppercase">
               <span className="w-4 h-px bg-secondary" />
               {featuredEvent.category}
