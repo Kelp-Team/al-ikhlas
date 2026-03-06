@@ -22,7 +22,7 @@ export default function ProtectedLayout({
   if (isPending) {
     return (
       <div className="flex min-h-full items-center justify-center">
-        <div className="h-6 w-6 animate-spin border-2 border-forest border-t-transparent rounded-full" />
+        <div className="h-6 w-6 animate-spin border-2 border-primary border-t-transparent rounded-full" />
       </div>
     );
   }

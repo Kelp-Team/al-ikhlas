@@ -36,7 +36,7 @@ export default function LoginPage() {
 
   return (
     <div className="w-full max-w-sm border border-border bg-white p-6">
-      <h1 className="mb-6 text-center text-sm font-semibold tracking-wide text-forest">
+      <h1 className="mb-6 text-center text-sm font-semibold tracking-wide text-primary">
         Sign In
       </h1>
 
@@ -76,7 +76,7 @@ export default function LoginPage() {
 
       <p className="mt-4 text-center text-xs text-muted-foreground">
         Don&apos;t have an account?{" "}
-        <Link href="/register" className="text-forest hover:underline">
+        <Link href="/register" className="text-primary hover:underline">
           Register
         </Link>
       </p>

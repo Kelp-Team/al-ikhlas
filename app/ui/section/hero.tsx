@@ -48,7 +48,7 @@ export function Hero() {
 
   return (
     <section className="grid grid-cols-2 min-h-screen">
-      <div className="bg-forest px-14 py-20 flex flex-col justify-between relative overflow-hidden">
+      <div className="bg-primary px-14 py-20 flex flex-col justify-between relative overflow-hidden">
         <svg
           width="100%"
           height="100%"
@@ -136,34 +136,34 @@ export function Hero() {
           />
         </svg>
 
-        <div className="flex items-center gap-2.5 text-gold-light text-[0.68rem] tracking-[0.22em] uppercase">
-          <span className="w-6 h-px bg-gold" />
+        <div className="flex items-center gap-2.5 text-accent text-[0.68rem] tracking-[0.22em] uppercase">
+          <span className="w-6 h-px bg-secondary" />
           Subang Jaya, Malaysia
         </div>
 
-        <h1 className="text-cream text-5xl font-light leading-tight">
+        <h1 className="text-primary-foreground text-5xl font-light leading-tight">
           A place of
           <br />
-          <em className="text-gold-light">prayer</em> &amp;
+          <em className="text-accent">prayer</em> &amp;
           <br />
           community.
         </h1>
 
         <div className="flex flex-col gap-6">
-          <p className="text-cream/60 text-sm leading-relaxed max-w-[360px]">
+          <p className="text-primary-foreground/60 text-sm leading-relaxed max-w-[360px]">
             Stay connected with your masjid — prayer times, programmes, and
             everything your jemaah needs in one place.
           </p>
           <div className="flex gap-3">
             <Link
               href="#prayers"
-              className="bg-gold text-[var(--charcoal)] hover:bg-gold-light text-xs tracking-widest uppercase px-7 py-3 rounded-sm no-underline transition-colors"
+              className="bg-secondary text-secondary-foreground hover:bg-accent/80 text-xs tracking-widest uppercase px-7 py-3 rounded-sm no-underline transition-colors"
             >
               Prayer Times
             </Link>
             <Link
               href="#events"
-              className="border border-cream/25 text-cream hover:border-cream/60 text-xs tracking-widest uppercase px-7 py-3 rounded-sm no-underline transition-colors"
+              className="border border-primary-foreground/25 text-primary-foreground hover:border-primary-foreground/60 text-xs tracking-widest uppercase px-7 py-3 rounded-sm no-underline transition-colors"
             >
               View Events
             </Link>
@@ -171,7 +171,7 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="relative overflow-hidden bg-forest">
+      <div className="relative overflow-hidden bg-primary">
         <div className="w-full h-full">
           <div className="absolute bottom-0 w-full">
             <PrayerTimes />

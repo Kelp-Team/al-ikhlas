@@ -32,21 +32,21 @@ const infoRows = [
 export function About() {
   return (
     <section className="grid md:grid-cols-2" id="about">
-      <div className="bg-cream p-6 md:p-14">
-        <div className="flex items-center gap-2.5 text-gold text-[0.65rem] tracking-[0.22em] uppercase mb-2.5">
-          <span className="w-5 h-px bg-gold" />
+      <div className="bg-background p-6 md:p-14">
+        <div className="flex items-center gap-2.5 text-secondary text-[0.65rem] tracking-[0.22em] uppercase mb-2.5">
+          <span className="w-5 h-px bg-secondary" />
           About the Mosque
         </div>
-        <h2 className="text-brown text-2xl md:text-3xl font-light leading-tight">
+        <h2 className="text-foreground text-2xl md:text-3xl font-light leading-tight">
           Rooted in Faith,
           <br />
           Built for Community
         </h2>
-        <blockquote className="font-serif text-brown text-xl md:text-2xl font-light italic leading-relaxed border-l-2 border-gold pl-4 md:pl-7 my-7 md:my-9">
+        <blockquote className="font-serif text-foreground text-xl md:text-2xl font-light italic leading-relaxed border-l-2 border-secondary pl-4 md:pl-7 my-7 md:my-9">
           &ldquo;The mosque is the heart of the Muslim community &mdash; a place of worship,
           learning, and belonging.&rdquo;
         </blockquote>
-        <p className="text-[var(--text-2)] text-sm leading-relaxed max-w-[440px]">
+        <p className="text-muted-foreground text-sm leading-relaxed max-w-[440px]">
           Masjid Al-Hikmah has served the Subang Jaya community since 2003. Our
           mission is to provide a welcoming space for worship, education, and
           community programmes that bring Muslims together and serve our neighbours
@@ -58,18 +58,18 @@ export function About() {
         </p>
       </div>
 
-      <div className="bg-parchment p-6 md:p-14 flex flex-col justify-center gap-6 md:gap-8">
+      <div className="bg-muted p-6 md:p-14 flex flex-col justify-center gap-6 md:gap-8">
         {infoRows.map((row, i) => (
           <div key={i}>
-            <div className="flex gap-5 pb-7 border-b border-sand last:border-0 last:pb-0">
-              <div className="w-11 h-11 bg-cream rounded-sm flex items-center justify-center text-forest shrink-0">
+            <div className="flex gap-5 pb-7 border-b border-border last:border-0 last:pb-0">
+              <div className="w-11 h-11 bg-background rounded-sm flex items-center justify-center text-primary shrink-0">
                 {row.icon}
               </div>
               <div>
-                <div className="text-[var(--text-3)] text-[0.65rem] tracking-[0.18em] uppercase mb-1">
+                <div className="text-muted-foreground text-[0.65rem] tracking-[0.18em] uppercase mb-1">
                   {row.label}
                 </div>
-                <div className="text-brown text-sm leading-relaxed whitespace-pre-line">
+                <div className="text-foreground text-sm leading-relaxed whitespace-pre-line">
                   {row.value}
                 </div>
               </div>

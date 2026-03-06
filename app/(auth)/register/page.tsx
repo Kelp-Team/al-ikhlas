@@ -46,7 +46,7 @@ export default function RegisterPage() {
 
   return (
     <div className="w-full max-w-sm border border-border bg-white p-6">
-      <h1 className="mb-6 text-center text-sm font-semibold tracking-wide text-forest">
+      <h1 className="mb-6 text-center text-sm font-semibold tracking-wide text-primary">
         Create Account
       </h1>
 
@@ -121,7 +121,7 @@ export default function RegisterPage() {
 
       <p className="mt-4 text-center text-xs text-muted-foreground">
         Already have an account?{" "}
-        <Link href="/login" className="text-forest hover:underline">
+        <Link href="/login" className="text-primary hover:underline">
           Sign in
         </Link>
       </p>

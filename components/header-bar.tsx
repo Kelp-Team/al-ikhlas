@@ -25,7 +25,7 @@ export function HeaderBar() {
           <Link
             key={link.href}
             href={link.href}
-            className="text-(--text-2) hover:text-forest text-[0.78rem] tracking-[0.08em] transition-colors no-underline"
+            className="text-muted-foreground hover:text-primary text-[0.78rem] tracking-[0.08em] transition-colors no-underline"
           >
             {link.label}
           </Link>
@@ -34,7 +34,7 @@ export function HeaderBar() {
 
       <Link
         href="#"
-        className="bg-forest text-cream hover:bg-forest-mid text-[0.75rem] tracking-widest px-5 py-2 rounded-sm no-underline transition-colors"
+        className="bg-primary text-primary-foreground hover:bg-primary/80 text-[0.75rem] tracking-widest px-5 py-2 rounded-sm no-underline transition-colors"
       >
         Declare Mosque
       </Link>
