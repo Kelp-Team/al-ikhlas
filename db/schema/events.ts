@@ -14,8 +14,6 @@ export const event = pgTable("event", {
   time: text("time"),
   location: text("location"),
   featured: boolean("featured").default(false).notNull(),
-  displayNumber: text("display_number"),
-  dateNum: text("date_num"),
   createdAt: timestamp("created_at").notNull().defaultNow(),
   updatedAt: timestamp("updated_at").notNull().defaultNow(),
 });

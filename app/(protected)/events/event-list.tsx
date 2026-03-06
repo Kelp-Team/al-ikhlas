@@ -15,8 +15,16 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetDescription,
+} from "@/components/ui/sheet";
 import { deleteEvent } from "@/lib/actions/events";
 import { EventForm } from "./event-form";
+import { PlusIcon } from "@phosphor-icons/react";
 
 interface Event {
   id: string;
@@ -27,14 +35,13 @@ interface Event {
   time: string | null;
   location: string | null;
   featured: boolean;
-  displayNumber: string | null;
-  dateNum: string | null;
   createdAt: Date;
   updatedAt: Date;
 }
 
 export function EventList({ events }: { events: Event[] }) {
-  const [editingId, setEditingId] = useState<string | null>(null);
+  const [editingEvent, setEditingEvent] = useState<Event | null>(null);
+  const [isAddOpen, setIsAddOpen] = useState(false);
   const [isPending, startTransition] = useTransition();
 
   function handleDelete(id: string) {
@@ -43,88 +50,126 @@ export function EventList({ events }: { events: Event[] }) {
     });
   }
 
-  if (events.length === 0) {
-    return (
-      <p className="text-muted-foreground text-sm">
-        No events yet. Create one above.
-      </p>
-    );
-  }
-
   return (
-    <div className="grid gap-4">
-      <h2 className="text-lg font-light">All Events ({events.length})</h2>
-      {events.map((event) =>
-        editingId === event.id ? (
-          <EventForm
-            key={event.id}
-            event={event}
-            onDone={() => setEditingId(null)}
-          />
-        ) : (
-          <Card key={event.id}>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                {event.displayNumber && (
-                  <span className="text-muted-foreground font-mono">
-                    {event.displayNumber}
-                  </span>
-                )}
-                {event.title}
-                {event.featured && <Badge variant="secondary">Featured</Badge>}
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="grid gap-2 text-sm text-muted-foreground">
-                <div>Category: {event.category}</div>
-                {event.description && <div>{event.description}</div>}
-                <div className="flex flex-wrap gap-4">
-                  {event.date && <span>Date: {event.date}</span>}
-                  {event.time && <span>Time: {event.time}</span>}
-                  {event.location && <span>Location: {event.location}</span>}
+    <>
+      <div className="flex items-center justify-between mb-8">
+        <div>
+          <h1 className="text-2xl font-light mb-2">Manage Events</h1>
+          <p className="text-muted-foreground text-sm">
+            Create, edit, and delete events displayed on the homepage.
+          </p>
+        </div>
+        <Button onClick={() => setIsAddOpen(true)}>
+          <PlusIcon />
+          Add Event
+        </Button>
+      </div>
+
+      <Sheet open={isAddOpen} onOpenChange={setIsAddOpen}>
+        <SheetContent>
+          <SheetHeader>
+            <SheetTitle>Add New Event</SheetTitle>
+            <SheetDescription>
+              Fill in the details to create a new event.
+            </SheetDescription>
+          </SheetHeader>
+          <div className="overflow-y-auto flex-1 p-4">
+            <EventForm onDone={() => setIsAddOpen(false)} />
+          </div>
+        </SheetContent>
+      </Sheet>
+
+      <Sheet
+        open={!!editingEvent}
+        onOpenChange={(open) => {
+          if (!open) setEditingEvent(null);
+        }}
+      >
+        <SheetContent>
+          <SheetHeader>
+            <SheetTitle>Edit Event</SheetTitle>
+            <SheetDescription>
+              Update the event details below.
+            </SheetDescription>
+          </SheetHeader>
+          <div className="overflow-y-auto flex-1 p-4">
+            {editingEvent && (
+              <EventForm
+                event={editingEvent}
+                onDone={() => setEditingEvent(null)}
+              />
+            )}
+          </div>
+        </SheetContent>
+      </Sheet>
+
+      {events.length === 0 ? (
+        <p className="text-muted-foreground text-sm">
+          No events yet. Click &quot;Add Event&quot; to create one.
+        </p>
+      ) : (
+        <div className="grid gap-4">
+          <h2 className="text-lg font-light">All Events ({events.length})</h2>
+          {events.map((event) => (
+            <Card key={event.id}>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  {event.title}
+                  {event.featured && <Badge variant="secondary">Featured</Badge>}
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="grid gap-2 text-sm text-muted-foreground">
+                  <div>Category: {event.category}</div>
+                  {event.description && <div>{event.description}</div>}
+                  <div className="flex flex-wrap gap-4">
+                    {event.date && <span>Date: {event.date}</span>}
+                    {event.time && <span>Time: {event.time}</span>}
+                    {event.location && <span>Location: {event.location}</span>}
+                  </div>
                 </div>
-              </div>
-              <div className="flex gap-2 mt-4">
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={() => setEditingId(event.id)}
-                >
-                  Edit
-                </Button>
-                <AlertDialog>
-                  <AlertDialogTrigger
-                    render={
-                      <Button variant="destructive" size="sm">
-                        Delete
-                      </Button>
-                    }
-                  />
-                  <AlertDialogContent>
-                    <AlertDialogHeader>
-                      <AlertDialogTitle>Delete Event</AlertDialogTitle>
-                      <AlertDialogDescription>
-                        Are you sure you want to delete &quot;{event.title}
-                        &quot;? This action cannot be undone.
-                      </AlertDialogDescription>
-                    </AlertDialogHeader>
-                    <AlertDialogFooter>
-                      <AlertDialogCancel>Cancel</AlertDialogCancel>
-                      <AlertDialogAction
-                        variant="destructive"
-                        onClick={() => handleDelete(event.id)}
-                        disabled={isPending}
-                      >
-                        {isPending ? "Deleting..." : "Delete"}
-                      </AlertDialogAction>
-                    </AlertDialogFooter>
-                  </AlertDialogContent>
-                </AlertDialog>
-              </div>
-            </CardContent>
-          </Card>
-        ),
+                <div className="flex gap-2 mt-4">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => setEditingEvent(event)}
+                  >
+                    Edit
+                  </Button>
+                  <AlertDialog>
+                    <AlertDialogTrigger
+                      render={
+                        <Button variant="destructive" size="sm">
+                          Delete
+                        </Button>
+                      }
+                    />
+                    <AlertDialogContent>
+                      <AlertDialogHeader>
+                        <AlertDialogTitle>Delete Event</AlertDialogTitle>
+                        <AlertDialogDescription>
+                          Are you sure you want to delete &quot;{event.title}
+                          &quot;? This action cannot be undone.
+                        </AlertDialogDescription>
+                      </AlertDialogHeader>
+                      <AlertDialogFooter>
+                        <AlertDialogCancel>Cancel</AlertDialogCancel>
+                        <AlertDialogAction
+                          variant="destructive"
+                          onClick={() => handleDelete(event.id)}
+                          disabled={isPending}
+                        >
+                          {isPending ? "Deleting..." : "Delete"}
+                        </AlertDialogAction>
+                      </AlertDialogFooter>
+                    </AlertDialogContent>
+                  </AlertDialog>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
       )}
-    </div>
+    </>
   );
 }

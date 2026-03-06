@@ -15,6 +15,13 @@
       "when": 1772812643885,
       "tag": "0001_aberrant_maestro",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1772817574026,
+      "tag": "0002_legal_liz_osborn",
+      "breakpoints": true
     }
   ]
 }

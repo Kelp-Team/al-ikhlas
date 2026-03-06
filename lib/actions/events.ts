@@ -16,8 +16,6 @@ export async function createEvent(prevState: unknown, formData: FormData) {
   const time = (formData.get("time") as string) || null;
   const location = (formData.get("location") as string) || null;
   const featured = formData.get("featured") === "true";
-  const displayNumber = (formData.get("displayNumber") as string) || null;
-  const dateNum = (formData.get("dateNum") as string) || null;
 
   if (!title || !category) {
     return { error: "Title and category are required." };
@@ -32,8 +30,6 @@ export async function createEvent(prevState: unknown, formData: FormData) {
     time,
     location,
     featured,
-    displayNumber,
-    dateNum,
   });
 
   revalidatePath("/");
@@ -52,8 +48,6 @@ export async function updateEvent(prevState: unknown, formData: FormData) {
   const time = (formData.get("time") as string) || null;
   const location = (formData.get("location") as string) || null;
   const featured = formData.get("featured") === "true";
-  const displayNumber = (formData.get("displayNumber") as string) || null;
-  const dateNum = (formData.get("dateNum") as string) || null;
 
   if (!id || !title || !category) {
     return { error: "ID, title, and category are required." };
@@ -69,8 +63,6 @@ export async function updateEvent(prevState: unknown, formData: FormData) {
       time,
       location,
       featured,
-      displayNumber,
-      dateNum,
       updatedAt: new Date(),
     })
     .where(eq(event.id, id));
