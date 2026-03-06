@@ -1,8 +1,11 @@
 "use client";
 
-import { useActionState, useEffect, useRef } from "react";
+import { useActionState, useEffect, useRef, useState } from "react";
+import { format, parse } from "date-fns";
 import { Button } from "@/components/ui/button";
+import { DatePicker } from "@/components/ui/date-picker";
 import { Input } from "@/components/ui/input";
+import { TimePicker } from "@/components/ui/time-picker";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -32,10 +35,16 @@ export function EventForm({
   const action = isEditing ? updateEvent : createEvent;
   const [state, formAction, isPending] = useActionState(action, null);
   const formRef = useRef<HTMLFormElement>(null);
+  const [date, setDate] = useState<Date | undefined>(
+    event?.date ? parse(event.date, "d MMMM yyyy", new Date()) : undefined
+  );
+  const [time, setTime] = useState(event?.time ?? "");
 
   useEffect(() => {
     if (state?.success) {
       formRef.current?.reset();
+      setDate(undefined);
+      setTime("");
       onDone?.();
     }
   }, [state, onDone]);
@@ -81,21 +90,21 @@ export function EventForm({
 
           <div className="grid grid-cols-2 gap-4">
             <div className="grid gap-2">
-              <Label htmlFor="date">Date</Label>
-              <Input
-                id="date"
+              <Label>Date</Label>
+              <DatePicker value={date} onChange={setDate} />
+              <input
+                type="hidden"
                 name="date"
-                placeholder="e.g. 7 March 2026"
-                defaultValue={event?.date ?? ""}
+                value={date ? format(date, "d MMMM yyyy") : ""}
               />
             </div>
             <div className="grid gap-2">
               <Label htmlFor="time">Time</Label>
-              <Input
+              <TimePicker
                 id="time"
                 name="time"
-                placeholder="e.g. After Maghrib"
-                defaultValue={event?.time ?? ""}
+                value={time}
+                onChange={setTime}
               />
             </div>
           </div>
