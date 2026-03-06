@@ -1,6 +1,6 @@
 import { HeaderBar } from "@/components/header-bar";
 import { Hero } from "@/app/ui/section/hero";
-import { About, Events, Facilities, Footer } from "./ui/section";
+import { About, Events, Facilities, Footer } from "../ui/section";
 
 export default function Page() {
   return (
