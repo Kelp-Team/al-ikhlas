@@ -5,4 +5,5 @@ export { PrayerTimes } from "./prayer-times";
 export { Events } from "./events";
 export { Facilities } from "./facilities";
 export { About } from "./about";
+export { Gallery } from "./gallery";
 export { Footer } from "./footer";
