@@ -45,120 +45,101 @@
   --radius-2xl: calc(var(--radius) + 8px);
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
-
-  /* Mosque theme colors */
-  --color-cream: var(--cream);
-  --color-warm: var(--warm);
-  --color-parchment: var(--parchment);
-  --color-sand: var(--sand);
-  --color-clay: var(--clay);
-  --color-forest: var(--forest);
-  --color-forest-mid: var(--forest-mid);
-  --color-gold: var(--gold);
-  --color-gold-light: var(--gold-light);
-  --color-charcoal: var(--charcoal);
-  --color-brown: var(--brown);
 }
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.141 0.005 285.823);
+  /* ── Core shadcn tokens ── */
+  --background: oklch(0.98 0.005 100);           /* warm off-white */
+  --foreground: oklch(0.15 0.02 170);             /* deep teal-black */
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.141 0.005 285.823);
+  --card-foreground: oklch(0.15 0.02 170);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.141 0.005 285.823);
-  --primary: oklch(0.60 0.13 163);
-  --primary-foreground: oklch(0.98 0.02 166);
-  --secondary: oklch(0.967 0.001 286.375);
-  --secondary-foreground: oklch(0.21 0.006 285.885);
-  --muted: oklch(0.967 0.001 286.375);
-  --muted-foreground: oklch(0.552 0.016 285.938);
-  --accent: oklch(0.967 0.001 286.375);
-  --accent-foreground: oklch(0.21 0.006 285.885);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.92 0.004 286.32);
-  --input: oklch(0.92 0.004 286.32);
-  --ring: oklch(0.705 0.015 286.067);
-  --chart-1: oklch(0.85 0.13 165);
-  --chart-2: oklch(0.77 0.15 163);
-  --chart-3: oklch(0.70 0.15 162);
-  --chart-4: oklch(0.60 0.13 163);
-  --chart-5: oklch(0.51 0.10 166);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.141 0.005 285.823);
-  --sidebar-primary: oklch(0.60 0.13 163);
-  --sidebar-primary-foreground: oklch(0.98 0.02 166);
-  --sidebar-accent: oklch(0.967 0.001 286.375);
-  --sidebar-accent-foreground: oklch(0.21 0.006 285.885);
-  --sidebar-border: oklch(0.92 0.004 286.32);
-  --sidebar-ring: oklch(0.705 0.015 286.067);
+  --popover-foreground: oklch(0.15 0.02 170);
 
-  /* Mosque theme colors - Light */
-  --cream: #F8F4EE;
-  --warm: #F0EAE0;
-  --parchment: #E6DDD0;
-  --sand: #C8B89A;
-  --clay: #A08060;
-  --forest: #1E3A2F;
-  --forest-mid: #2C5040;
-  --gold: #B8943C;
-  --gold-light: #D4AF6A;
-  --charcoal: #1A1410;
-  --brown: #3A2A1A;
-  --text: #1A1410;
-  --text-2: #5A4A38;
-  --text-3: #8A7A68;
+  /* primary = #004c47 */
+  --primary: oklch(0.33 0.07 174);
+  --primary-foreground: oklch(0.97 0.02 95);      /* warm ivory */
+
+  /* secondary = #ecd587 */
+  --secondary: oklch(0.87 0.10 87);
+  --secondary-foreground: oklch(0.25 0.05 174);
+
+  --muted: oklch(0.94 0.01 95);
+  --muted-foreground: oklch(0.52 0.03 174);
+
+  --accent: oklch(0.87 0.10 87);                  /* gold accent */
+  --accent-foreground: oklch(0.25 0.05 174);
+
+  --destructive: oklch(0.577 0.245 27.325);
+
+  --border: oklch(0.88 0.01 170);
+  --input: oklch(0.88 0.01 170);
+  --ring: oklch(0.33 0.07 174);
+
+  /* ── Charts (teal → gold gradient) ── */
+  --chart-1: oklch(0.33 0.07 174);
+  --chart-2: oklch(0.45 0.09 172);
+  --chart-3: oklch(0.58 0.10 170);
+  --chart-4: oklch(0.75 0.11 90);
+  --chart-5: oklch(0.87 0.10 87);
+
+  --radius: 0.625rem;
+
+  /* ── Sidebar ── */
+  --sidebar: oklch(0.28 0.06 174);                /* dark teal sidebar */
+  --sidebar-foreground: oklch(0.93 0.02 95);
+  --sidebar-primary: oklch(0.87 0.10 87);         /* gold active item */
+  --sidebar-primary-foreground: oklch(0.25 0.05 174);
+  --sidebar-accent: oklch(0.38 0.07 173);
+  --sidebar-accent-foreground: oklch(0.93 0.02 95);
+  --sidebar-border: oklch(0.38 0.05 173);
+  --sidebar-ring: oklch(0.87 0.10 87);
 }
 
 .dark {
-  --background: oklch(0.141 0.005 285.823);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.21 0.006 285.885);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.21 0.006 285.885);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.70 0.15 162);
-  --primary-foreground: oklch(0.26 0.05 173);
-  --secondary: oklch(0.274 0.006 286.033);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.274 0.006 286.033);
-  --muted-foreground: oklch(0.705 0.015 286.067);
-  --accent: oklch(0.274 0.006 286.033);
-  --accent-foreground: oklch(0.985 0 0);
+  /* ── Core shadcn tokens ── */
+  --background: oklch(0.12 0.02 174);
+  --foreground: oklch(0.95 0.015 95);
+  --card: oklch(0.17 0.025 174);
+  --card-foreground: oklch(0.95 0.015 95);
+  --popover: oklch(0.17 0.025 174);
+  --popover-foreground: oklch(0.95 0.015 95);
+
+  /* primary flips to gold in dark mode */
+  --primary: oklch(0.87 0.10 87);
+  --primary-foreground: oklch(0.25 0.05 174);
+
+  --secondary: oklch(0.22 0.04 174);
+  --secondary-foreground: oklch(0.92 0.02 95);
+
+  --muted: oklch(0.20 0.03 174);
+  --muted-foreground: oklch(0.62 0.03 170);
+
+  --accent: oklch(0.22 0.04 174);
+  --accent-foreground: oklch(0.92 0.02 95);
+
   --destructive: oklch(0.704 0.191 22.216);
+
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.552 0.016 285.938);
-  --chart-1: oklch(0.85 0.13 165);
-  --chart-2: oklch(0.77 0.15 163);
-  --chart-3: oklch(0.70 0.15 162);
-  --chart-4: oklch(0.60 0.13 163);
-  --chart-5: oklch(0.51 0.10 166);
-  --sidebar: oklch(0.21 0.006 285.885);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.77 0.15 163);
-  --sidebar-primary-foreground: oklch(0.26 0.05 173);
-  --sidebar-accent: oklch(0.274 0.006 286.033);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.552 0.016 285.938);
+  --ring: oklch(0.87 0.10 87);
 
-  /* Mosque theme colors - Dark */
-  --cream: oklch(0.97 0.01 80);
-  --warm: oklch(0.30 0.02 280);
-  --parchment: oklch(0.25 0.02 280);
-  --sand: oklch(0.45 0.04 70);
-  --clay: oklch(0.40 0.05 60);
-  --forest: oklch(0.20 0.04 170);
-  --forest-mid: oklch(0.25 0.04 165);
-  --gold: oklch(0.65 0.12 50);
-  --gold-light: oklch(0.72 0.14 55);
-  --charcoal: oklch(0.08 0.01 280);
-  --brown: oklch(0.20 0.04 50);
-  --text: oklch(0.97 0.01 80);
-  --text-2: oklch(0.75 0.03 80);
-  --text-3: oklch(0.60 0.03 80);
+  /* ── Charts ── */
+  --chart-1: oklch(0.87 0.10 87);
+  --chart-2: oklch(0.75 0.11 90);
+  --chart-3: oklch(0.58 0.10 170);
+  --chart-4: oklch(0.45 0.09 172);
+  --chart-5: oklch(0.33 0.07 174);
+
+  /* ── Sidebar ── */
+  --sidebar: oklch(0.10 0.018 174);
+  --sidebar-foreground: oklch(0.93 0.02 95);
+  --sidebar-primary: oklch(0.87 0.10 87);
+  --sidebar-primary-foreground: oklch(0.25 0.05 174);
+  --sidebar-accent: oklch(0.18 0.03 174);
+  --sidebar-accent-foreground: oklch(0.93 0.02 95);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.87 0.10 87);
 }
 
 @layer base {
