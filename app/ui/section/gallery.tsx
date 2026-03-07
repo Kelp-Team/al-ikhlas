@@ -6,12 +6,12 @@ import { ArrowLeft, ArrowRight, X, MagnifyingGlassPlus } from "@phosphor-icons/r
 
 const images = [
   { src: "/galley/top view.jpg",    alt: "Aerial top view" },
-  { src: "/galley/nikah.jpg",       alt: "Nikah ceremony" },
-  { src: "/galley/1.jpg",           alt: "Masjid Al-Ikhlas" },
-  { src: "/galley/inner.jpg",       alt: "Interior of the mosque" },
   { src: "/galley/backyard.jpg",    alt: "Mosque backyard" },
-  { src: "/galley/kids.jpg",        alt: "Children at the mosque" },
+  { src: "/galley/1.jpg",           alt: "Masjid Al-Ikhlas" },
   { src: "/galley/playground.jpg",  alt: "Children's playground" },
+  { src: "/galley/nikah.jpg",       alt: "Nikah ceremony" },
+  { src: "/galley/inner.jpg",       alt: "Interior of the mosque" },
+  { src: "/galley/kids.jpg",        alt: "Children at the mosque" },
   { src: "/galley/playground2.jpg", alt: "Playground area" },
 ];
 
