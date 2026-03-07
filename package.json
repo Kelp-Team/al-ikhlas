@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "bun --bun vinext dev",
-    "build": "vinext build",
-    "start": "bun --bun vinext start",
+    "dev": "bun --bun next dev",
+    "build": "next build",
+    "start": "bun --bun next start",
     "lint": "eslint",
     "db:generate": "bunx drizzle-kit generate",
     "db:migrate": "bunx drizzle-kit migrate",
