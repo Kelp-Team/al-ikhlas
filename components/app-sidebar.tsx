@@ -4,6 +4,9 @@ import { useRouter } from "next/navigation";
 import {
   House,
   CalendarBlank,
+  CalendarCheck,
+  Buildings,
+  ClipboardText,
   SignOut,
   CaretUpDown,
 } from "@phosphor-icons/react";
@@ -26,10 +29,15 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 
-const navItems = [{ href: "/dashboard", label: "Dashboard", icon: House }];
+const navItems = [
+  { href: "/dashboard", label: "Dashboard", icon: House },
+  { href: "/booking", label: "Booking", icon: CalendarCheck },
+];
 
 const adminItems = [
   { href: "/events", label: "Manage Events", icon: CalendarBlank },
+  { href: "/places", label: "Manage Places", icon: Buildings },
+  { href: "/booking/manage", label: "Manage Bookings", icon: ClipboardText },
 ];
 
 type AppSidebarProps = {

@@ -20,32 +20,7 @@ const prayers: Prayer[] = [
   { name: "Isyak", arabic: "العشاء", time: "8:38", h: 20, m: 38 },
 ];
 
-function nowMins(): number {
-  const n = new Date();
-  return n.getHours() * 60 + n.getMinutes();
-}
-
-function getActive(): string | null {
-  const cur = nowMins();
-  let a: string | null = null;
-  for (const p of prayers) {
-    if (p.h * 60 + p.m <= cur) a = p.name;
-  }
-  return a;
-}
-
 export function Hero() {
-  const [activePrayer, setActivePrayer] = useState<string | null>(() =>
-    getActive(),
-  );
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActivePrayer(getActive());
-    }, 60000);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <section className="grid grid-cols-2 min-h-screen">
       <div className="bg-primary px-14 py-20 flex flex-col justify-between relative overflow-hidden">
