@@ -37,11 +37,20 @@ export function EventForm({
   );
   const [time, setTime] = useState(event?.time ?? "");
 
+  // Adjust state during render (React-recommended pattern)
+  const [prevState, setPrevState] = useState(state);
+  if (state !== prevState) {
+    setPrevState(state);
+    if (state?.success) {
+      setDate(undefined);
+      setTime("");
+    }
+  }
+
+  // Side effects (DOM reset + callback) stay in useEffect
   useEffect(() => {
     if (state?.success) {
       formRef.current?.reset();
-      setDate(undefined);
-      setTime("");
       onDone?.();
     }
   }, [state, onDone]);
