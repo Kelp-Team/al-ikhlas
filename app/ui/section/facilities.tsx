@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { Mosque, GenderFemale, Car, Wheelchair } from "@phosphor-icons/react";
+import { Button } from "@/components/ui/button";
 
 const facilities = [
   {
@@ -52,12 +53,9 @@ export function Facilities() {
                 {fac.icon}
               </div>
               {fac.href && (
-                <Link
-                  href={fac.href}
-                  className="mt-auto self-start text-sm text-secondary border border-secondary/30 rounded-full px-4 py-1.5 transition-colors hover:bg-secondary/10"
-                >
+                <Button variant="outline" size="sm" render={<Link href={fac.href} />} className="text-secondary border-secondary/30 rounded-full hover:bg-secondary/10">
                   Book
-                </Link>
+                </Button>
               )}
             </div>
             <div className="font-serif text-primary-foreground text-xl">

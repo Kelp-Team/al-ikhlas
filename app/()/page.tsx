@@ -1,17 +1,9 @@
-import { HeaderBar } from "@/components/header-bar";
 import { Hero } from "@/app/ui/section/hero";
-import {
-  About,
-  Events,
-  Facilities,
-  Footer,
-  ZakatCalculator,
-} from "../ui/section";
+import { About, Events, Facilities, Footer } from "../ui/section";
 
 export default function Page() {
   return (
     <div className="h-screen w-full snap-y overflow-y-scroll">
-      <HeaderBar />
       <section>
         <Hero />
       </section>
@@ -21,7 +13,6 @@ export default function Page() {
       <section>
         <Facilities />
         <About />
-        <ZakatCalculator />
       </section>
       <section>
         <Footer />

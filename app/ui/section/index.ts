@@ -6,5 +6,5 @@ export { Events } from "./events";
 export { Facilities } from "./facilities";
 export { About } from "./about";
 export { Gallery } from "./gallery";
-export { ZakatCalculator } from "./zakat-calculator";
+export { ZakatCalculator } from "./zakat";
 export { Footer } from "./footer";

@@ -35,6 +35,13 @@ export function HeaderBar() {
         />
       </Link>
 
+      <Link
+        href="/zakat"
+        className="text-muted-foreground hover:text-foreground text-sm transition-colors"
+      >
+        Zakat Calculator
+      </Link>
+
       {isPending ? null : session ? (
         <Popover>
           <PopoverTrigger>
@@ -65,12 +72,9 @@ export function HeaderBar() {
           </PopoverContent>
         </Popover>
       ) : (
-        <Link
-          href="/login"
-          className="bg-primary text-primary-foreground hover:bg-primary/80 text-[0.75rem] tracking-widest px-5 py-2 rounded-sm no-underline transition-colors"
-        >
+        <Button render={<Link href="/login" />} className="tracking-widest">
           Login
-        </Link>
+        </Button>
       )}
     </nav>
   );

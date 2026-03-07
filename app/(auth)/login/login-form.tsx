@@ -7,6 +7,9 @@ import { signIn, signInWithGoogle } from "@/lib/auth-client";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
+import { SpinnerGap } from "@phosphor-icons/react";
+import { GoogleLogo } from "@phosphor-icons/react/dist/ssr";
 
 export function LoginForm() {
   const router = useRouter();
@@ -47,17 +50,13 @@ export function LoginForm() {
   }
 
   return (
-    <div className="w-full max-w-sm border border-border bg-white p-6">
-      <h1 className="mb-6 text-center text-sm font-semibold tracking-wide text-primary">
+    <div className="flex w-full flex-col gap-4">
+      <h1 className="text-center text-sm font-semibold tracking-wide text-primary">
         Sign In
       </h1>
 
-
-
-
-      {/* ── Email / Password ── */}
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div className="space-y-1.5">
+      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+        <div className="flex flex-col gap-1.5">
           <Label htmlFor="email">Email</Label>
           <Input
             id="email"
@@ -69,7 +68,7 @@ export function LoginForm() {
           />
         </div>
 
-        <div className="space-y-1.5">
+        <div className="flex flex-col gap-1.5">
           <Label htmlFor="password">Password</Label>
           <Input
             id="password"
@@ -83,48 +82,37 @@ export function LoginForm() {
 
         {error && <p className="text-xs text-destructive">{error}</p>}
 
-        <Button type="submit" className="w-full" disabled={loading || googleLoading}>
-          {loading ? "Signing in…" : "Sign In"}
+        <Button
+          type="submit"
+          className="w-full"
+          disabled={loading || googleLoading}
+        >
+          {loading ? <SpinnerGap className="animate-spin" /> : "Sign In"}
         </Button>
       </form>
-      
-      {/* Divider */}
-      <div className="relative flex items-center gap-3  py-4">
-        <div className="flex-1 h-px bg-border" />
+
+      <div className="relative flex items-center gap-3">
+        <Separator className="flex-1" />
         <span className="text-[0.65rem] tracking-widest uppercase text-muted-foreground">
           or
         </span>
-        <div className="flex-1 h-px bg-border" />
+        <Separator className="flex-1" />
       </div>
-            {/* ── Google OAuth ── */}
       <Button
         type="button"
         variant="outline"
-        className="w-full flex items-center justify-center gap-2.5 mb-4"
+        className="w-full flex items-center justify-center gap-2.5"
         onClick={handleGoogle}
         disabled={googleLoading || loading}
       >
         {googleLoading ? (
-          <svg
-            className="animate-spin h-4 w-4 text-muted-foreground"
-            viewBox="0 0 24 24"
-            fill="none"
-          >
-            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
-          </svg>
+          <SpinnerGap className="animate-spin" />
         ) : (
-          /* Google "G" logo SVG */
-          <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
-            <path d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844a4.14 4.14 0 0 1-1.796 2.716v2.259h2.908c1.702-1.567 2.684-3.875 2.684-6.615Z" fill="#4285F4"/>
-            <path d="M9 18c2.43 0 4.467-.806 5.956-2.18l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 0 0 9 18Z" fill="#34A853"/>
-            <path d="M3.964 10.71A5.41 5.41 0 0 1 3.682 9c0-.593.102-1.17.282-1.71V4.958H.957A8.996 8.996 0 0 0 0 9c0 1.452.348 2.827.957 4.042l3.007-2.332Z" fill="#FBBC05"/>
-            <path d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 0 0 .957 4.958L3.964 7.29C4.672 5.163 6.656 3.58 9 3.58Z" fill="#EA4335"/>
-          </svg>
+          <GoogleLogo />
         )}
         {googleLoading ? "Redirecting…" : "Continue with Google"}
       </Button>
-      <p className="mt-4 text-center text-xs text-muted-foreground">
+      <p className="text-center text-xs text-muted-foreground">
         Don&apos;t have an account?{" "}
         <Link href="/register" className="text-primary hover:underline">
           Register
@@ -133,4 +121,3 @@ export function LoginForm() {
     </div>
   );
 }
-

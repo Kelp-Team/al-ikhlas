@@ -1,3 +1,4 @@
+import { GeometricPattern } from "./geometric-pattern";
 import Link from "next/link";
 import {
   YoutubeLogo,
@@ -6,27 +7,20 @@ import {
   TiktokLogo,
   Envelope,
   Phone,
+  ThreadsLogo,
 } from "@phosphor-icons/react/dist/ssr";
 
 const footerCols = [
   {
-    title: "Mosque",
-    links: ["Prayer Times", "About", "Facilities", "Parking & Access"],
-  },
-  {
-    title: "Community",
-    links: ["Events", "Classes", "Programmes", "Volunteer"],
-  },
-  {
     title: "RC26 Hackathon",
-    links: ["Declare Mosque", "Join Discord", "Submit Project"],
+    links: ["Join Discord", "Submit Project"],
   },
 ];
 
 const socialLinks = [
   {
     label: "YouTube",
-    href: "https://youtube.com/@mai13.official?si=RH8Y5IGFg8BSBMb8",
+    href: "https://youtube.com/@mai13.official",
     icon: <YoutubeLogo size={18} weight="fill" aria-hidden />,
   },
   {
@@ -36,12 +30,8 @@ const socialLinks = [
   },
   {
     label: "Threads",
-    href: "https://www.threads.com/@mai13.official?xmt=AQF00BimCLs6wRPZyLs8-c3IIKs_iWSh2BTAs8RSq-QCh78",
-    icon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164 1.43 1.783 3.631 2.698 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.964-.065-1.19.408-2.285 1.33-3.082.88-.76 2.119-1.207 3.583-1.291a13.853 13.853 0 0 1 3.02.142c-.126-.988-.43-1.7-.91-2.102-.598-.505-1.518-.756-2.734-.748l-.007-.002c-.969.007-2.565.316-3.497 2.357l-1.875-.87c.866-1.912 2.407-3.646 5.387-3.668 1.673-.012 3.019.417 4.001 1.274 1.091.947 1.64 2.368 1.721 4.358.176.107.35.218.516.334 1.28.921 2.108 2.152 2.463 3.648.602 2.504.07 5.435-2.517 7.967-1.916 1.875-4.237 2.692-7.327 2.712z" />
-      </svg>
-    ),
+    href: "https://www.threads.com/@mai13.official",
+    icon: <ThreadsLogo size={18} weight="fill" aria-hidden />,
   },
   {
     label: "Instagram",
@@ -72,7 +62,10 @@ const contactInfo = [
 
 export function Footer() {
   return (
-    <footer className="bg-sidebar py-10 md:py-16 px-4 md:px-12">
+    <footer className="relative bg-sidebar py-10 md:py-16 px-4 md:px-12">
+      <div className="absolute inset-0 mask-[linear-gradient(to_right,transparent,black)] pointer-events-none">
+        <GeometricPattern className="absolute inset-0 opacity-[0.02]" />
+      </div>
       <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12 pb-8 md:pb-12 border-b border-primary-foreground/8 mb-8">
         {/* Brand + contact + social */}
         <div className="md:col-span-1">

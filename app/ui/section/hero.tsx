@@ -1,6 +1,7 @@
 "use client";
 
 import { PrayerTimes } from "./prayer-times";
+import { GeometricPattern } from "./geometric-pattern";
 import Image from "next/image";
 
 export function Hero() {
@@ -17,7 +18,10 @@ export function Hero() {
       </div>
 
       <div className="bg-primary flex flex-col justify-between">
-        <div className="flex-1 flex flex-col justify-center gap-3 p-6 md:p-12">
+        <div className="relative flex-1 flex flex-col justify-center gap-3 p-6 md:p-12">
+          <div className="absolute inset-0 mask-[linear-gradient(to_right,transparent,black)] pointer-events-none">
+            <GeometricPattern className="absolute inset-0 opacity-[0.02]" />
+          </div>
           <h1 className="text-primary-foreground text-4xl md:text-5xl font-light leading-tight">
             A place of <span className="font-bold text-accent">prayer</span>{" "}
             &amp; community.

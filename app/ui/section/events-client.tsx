@@ -173,17 +173,18 @@ export function EventsClient({
                   </div>
                 )}
               </div>
-              <button
+              <Button
+                variant="secondary"
+                className="tracking-widest uppercase text-xs px-6"
                 onClick={(e) => {
                   e.stopPropagation();
                   setSelectedEvent(featuredEvent);
                 }}
-                className="bg-secondary text-secondary-foreground hover:bg-accent/80 text-xs tracking-widest uppercase px-6 py-2.5 rounded-sm no-underline transition-colors shrink-0 cursor-pointer"
               >
                 {registeredIds.has(featuredEvent.id)
                   ? "Registered ✓"
                   : "Register →"}
-              </button>
+              </Button>
             </div>
           </div>
         )}
