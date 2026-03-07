@@ -1,10 +1,10 @@
 "use server";
 
 import { db } from "@/lib/db";
-import { event } from "@/db/schema";
-import { eq } from "drizzle-orm";
+import { event, participant } from "@/db/schema";
+import { eq, and } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
-import { requireAdmin } from "@/lib/auth-server";
+import { requireAdmin, getServerSession } from "@/lib/auth-server";
 
 export async function createEvent(prevState: unknown, formData: FormData) {
   await requireAdmin();
@@ -69,6 +69,36 @@ export async function updateEvent(prevState: unknown, formData: FormData) {
 
   revalidatePath("/");
   revalidatePath("/events");
+  return { success: true };
+}
+
+export async function registerForEvent(eventId: string) {
+  const session = await getServerSession();
+  if (!session) {
+    return { error: "Not authenticated" };
+  }
+
+  const existing = await db
+    .select()
+    .from(participant)
+    .where(
+      and(
+        eq(participant.eventId, eventId),
+        eq(participant.userId, session.user.id)
+      )
+    )
+    .limit(1);
+
+  if (existing.length > 0) {
+    return { alreadyRegistered: true };
+  }
+
+  await db.insert(participant).values({
+    id: crypto.randomUUID(),
+    userId: session.user.id,
+    eventId,
+  });
+
   return { success: true };
 }
 

@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
 import { getServerSession } from "@/lib/auth-server";
-import { getAllEvents } from "@/lib/queries/events";
+import { getAllEvents, getAllParticipants } from "@/lib/queries/events";
 import { EventList } from "./event-list";
 
 export default async function AdminEventsPage() {
@@ -10,11 +10,14 @@ export default async function AdminEventsPage() {
     redirect("/dashboard");
   }
 
-  const events = await getAllEvents();
+  const [events, participants] = await Promise.all([
+    getAllEvents(),
+    getAllParticipants(),
+  ]);
 
   return (
     <div className="max-w-4xl mx-auto py-10 px-4">
-      <EventList events={events} />
+      <EventList events={events} participants={participants} />
     </div>
   );
 }

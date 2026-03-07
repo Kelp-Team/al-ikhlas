@@ -39,7 +39,22 @@ interface Event {
   updatedAt: Date;
 }
 
-export function EventList({ events }: { events: Event[] }) {
+interface Participant {
+  id: string;
+  eventId: string;
+  userId: string;
+  name: string;
+  email: string;
+  createdAt: Date | null;
+}
+
+export function EventList({
+  events,
+  participants,
+}: {
+  events: Event[];
+  participants: Participant[];
+}) {
   const [editingEvent, setEditingEvent] = useState<Event | null>(null);
   const [isAddOpen, setIsAddOpen] = useState(false);
   const [isPending, startTransition] = useTransition();
@@ -128,6 +143,35 @@ export function EventList({ events }: { events: Event[] }) {
                     {event.location && <span>Location: {event.location}</span>}
                   </div>
                 </div>
+                {(() => {
+                  const eventParticipants = participants.filter(
+                    (p) => p.eventId === event.id
+                  );
+                  return (
+                    <div className="mt-4 pt-4 border-t border-border">
+                      <p className="text-sm font-medium mb-2">
+                        Participants ({eventParticipants.length})
+                      </p>
+                      {eventParticipants.length === 0 ? (
+                        <p className="text-sm text-muted-foreground">
+                          No registrations yet.
+                        </p>
+                      ) : (
+                        <div className="space-y-1">
+                          {eventParticipants.map((p) => (
+                            <div
+                              key={p.id}
+                              className="text-sm text-muted-foreground flex items-center gap-2"
+                            >
+                              <span>{p.name}</span>
+                              <span className="text-xs">({p.email})</span>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  );
+                })()}
                 <div className="flex gap-2 mt-4">
                   <Button
                     variant="outline"
