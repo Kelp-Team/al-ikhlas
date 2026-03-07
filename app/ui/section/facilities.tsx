@@ -1,39 +1,27 @@
+"use client";
+
+import Link from "next/link";
+import { Mosque, GenderFemale, Car, Wheelchair } from "@phosphor-icons/react";
+
 const facilities = [
   {
-    icon: (
-      <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-      </svg>
-    ),
-    name: "Wudhu' Area",
-    desc: "Separate facilities for brothers and sisters with ample ablution stations, fully tiled and clean.",
+    icon: <Mosque size={18} weight="light" />,
+    name: "Dewan Nikah",
+    desc: "An elegant place available for nikah ceremonies and walimah receptions, accommodating up to 20 guests.",
+    href: "/booking?place=wedding-hall",
   },
   {
-    icon: (
-      <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-        <circle cx="12" cy="8" r="4" />
-        <path d="M20 21a8 8 0 1 0-16 0" />
-      </svg>
-    ),
+    icon: <GenderFemale size={18} weight="light" />,
     name: "Women's Section",
-    desc: "A dedicated prayer space for sisters on the upper floor with direct access and full privacy.",
+    desc: "A dedicated prayer space for sisters on the lower floor with direct access and full privacy.",
   },
   {
-    icon: (
-      <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-        <rect x="3" y="11" width="18" height="11" rx="2" />
-        <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-      </svg>
-    ),
+    icon: <Car size={18} weight="light" />,
     name: "Parking",
     desc: "200+ parking bays available. Overflow at adjacent lots during peak Jumu'ah times.",
   },
   {
-    icon: (
-      <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-        <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
-      </svg>
-    ),
+    icon: <Wheelchair size={18} weight="light" />,
     name: "Accessibility",
     desc: "Ramps, lifts and designated prayer areas for wheelchair users and the elderly throughout.",
   },
@@ -41,12 +29,17 @@ const facilities = [
 
 export function Facilities() {
   return (
-    <section className="bg-primary py-10 md:py-16 px-4 md:px-12" id="facilities">
+    <section
+      className="bg-primary py-10 md:py-16 px-4 md:px-12"
+      id="facilities"
+    >
       <div className="flex items-center gap-2.5 text-accent text-[0.65rem] tracking-[0.22em] uppercase mb-2.5">
         <span className="w-5 h-px bg-secondary" />
         What We Offer
       </div>
-      <h2 className="text-primary-foreground text-2xl md:text-3xl font-light mb-8 md:mb-10">Facilities & Amenities</h2>
+      <h2 className="text-primary-foreground text-2xl md:text-3xl font-light mb-8 md:mb-10">
+        Facilities & Amenities
+      </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-4 gap-0.5 bg-sidebar">
         {facilities.map((fac, i) => (
@@ -54,11 +47,25 @@ export function Facilities() {
             key={i}
             className="bg-primary-foreground/4 border border-primary-foreground/8 p-8 flex flex-col gap-3.5 transition-colors hover:bg-primary-foreground/8 cursor-default"
           >
-            <div className="w-10 h-10 border border-secondary/30 rounded-full flex items-center justify-center text-secondary">
-              {fac.icon}
+            <div className="flex flex-row justify-between">
+              <div className="w-10 h-10 border border-secondary/30 rounded-full flex items-center justify-center text-secondary">
+                {fac.icon}
+              </div>
+              {fac.href && (
+                <Link
+                  href={fac.href}
+                  className="mt-auto self-start text-sm text-secondary border border-secondary/30 rounded-full px-4 py-1.5 transition-colors hover:bg-secondary/10"
+                >
+                  Book
+                </Link>
+              )}
             </div>
-            <div className="font-serif text-primary-foreground text-xl">{fac.name}</div>
-            <div className="text-primary-foreground/45 text-sm leading-relaxed">{fac.desc}</div>
+            <div className="font-serif text-primary-foreground text-xl">
+              {fac.name}
+            </div>
+            <div className="text-primary-foreground/45 text-sm leading-relaxed">
+              {fac.desc}
+            </div>
           </div>
         ))}
       </div>

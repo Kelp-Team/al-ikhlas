@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Input } from "@/components/ui/input";
 
 interface TimePickerProps {
@@ -28,12 +28,14 @@ function TimePicker({ value = "", onChange, id, name }: TimePickerProps) {
   const [period, setPeriod] = useState(parsed.period);
 
   // Sync internal state when external value changes (e.g. form reset)
-  useEffect(() => {
+  const [prevValue, setPrevValue] = useState(value);
+  if (value !== prevValue) {
+    setPrevValue(value);
     const p = parseTime12(value);
     setHours(p.hours);
     setMinutes(p.minutes);
     setPeriod(p.period);
-  }, [value]);
+  }
 
   function emit(h: string, m: string, p: string) {
     if (h && m.length === 2) {

@@ -7,7 +7,7 @@ export default function Page() {
     <div className="h-screen w-full snap-y overflow-y-scroll">
       <HeaderBar />
       <section>
-        <Hero />;
+        <Hero />
       </section>
       <section>
         <Events />
