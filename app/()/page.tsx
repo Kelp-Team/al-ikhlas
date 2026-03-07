@@ -15,6 +15,7 @@ export default function Page() {
       <section>
         <Facilities />
         <About />
+        <Gallery />
       </section>
       <section>
         <Footer />
