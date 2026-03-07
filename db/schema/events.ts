@@ -3,7 +3,9 @@ import {
   text,
   boolean,
   timestamp,
+  unique,
 } from "drizzle-orm/pg-core";
+import { user } from "./user";
 
 export const event = pgTable("event", {
   id: text("id").primaryKey(),
@@ -17,3 +19,18 @@ export const event = pgTable("event", {
   createdAt: timestamp("created_at").notNull().defaultNow(),
   updatedAt: timestamp("updated_at").notNull().defaultNow(),
 });
+
+export const participant = pgTable(
+  "participant",
+  {
+    id: text("id").primaryKey(),
+    userId: text("user_id")
+      .notNull()
+      .references(() => user.id),
+    eventId: text("event_id")
+      .notNull()
+      .references(() => event.id),
+    createdAt: timestamp("created_at").defaultNow(),
+  },
+  (t) => [unique().on(t.userId, t.eventId)]
+);
