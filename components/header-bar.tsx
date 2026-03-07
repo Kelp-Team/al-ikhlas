@@ -56,7 +56,7 @@ export function HeaderBar() {
 
       {isPending ? null : session ? (
         <Popover>
-          <PopoverTrigger asChild>
+          <PopoverTrigger>
             <Button variant="outline">
               {session.user.name}
               <CaretUpDown />
