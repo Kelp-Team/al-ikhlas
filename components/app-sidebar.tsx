@@ -16,6 +16,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { Button } from "@/components/ui/button";
 import {
   Sidebar,
   SidebarContent,
@@ -124,13 +125,10 @@ export function AppSidebar({ isAdmin, user }: AppSidebarProps) {
                 <CaretUpDown className="ml-auto shrink-0" />
               </PopoverTrigger>
               <PopoverContent side="right" align="center" className="w-56 p-1">
-                <button
-                  onClick={handleSignOut}
-                  className="flex w-full items-center gap-2 rounded-none p-2 text-xs hover:bg-sidebar-accent"
-                >
+                <Button variant="ghost" size="sm" className="justify-start w-full" onClick={handleSignOut}>
                   <SignOut />
                   <span>Sign out</span>
-                </button>
+                </Button>
               </PopoverContent>
             </Popover>
           </SidebarMenuItem>

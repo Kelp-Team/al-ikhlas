@@ -152,32 +152,34 @@ export function PrayerTimes() {
   }, [prayers]);
 
   return (
-    <section className="grid md:grid-cols-[340px_1fr] min-h-100" id="prayers">
-      <div className="bg-primary p-6 md:p-12 flex flex-col justify-between">
+    <section className="flex flex-col md:flex-row min-h-96" id="prayers">
+      <div className="bg-primary p-6 md:p-12 flex flex-col justify-between md:w-80 shrink-0">
         <div>
           <div className="flex items-center gap-2.5 text-accent text-xs tracking-widest uppercase mb-2.5">
             <span className="w-5 h-px bg-secondary" />
             Prayer Times
           </div>
-          <p className="text-muted-foreground font-serif italic text-sm mt-2">{dateStr}</p>
+          <p className="text-muted-foreground font-serif italic text-sm mt-2">
+            {dateStr}
+          </p>
         </div>
 
         {nextPrayer && (
-          <div className="pt-6 md:pt-9 border-t border-primary-foreground/12">
+          <div className="pt-6 md:pt-9 border-t border-primary-foreground/10">
             <div className="text-secondary text-xs tracking-widest uppercase mb-2">
               Next Prayer
             </div>
             <div className="font-serif text-primary-foreground text-lg md:text-xl">
               {nextPrayer.name} · {nextPrayer.time}
             </div>
-            <div className="font-serif text-accent text-2xl md:text-[2.6rem] font-light tracking-wide leading-none mt-1">
+            <div className="font-serif text-accent text-2xl md:text-4xl font-light tracking-wide leading-none mt-1">
               {countdown}
             </div>
           </div>
         )}
       </div>
 
-      <div className="bg-background grid grid-cols-2 md:grid-cols-5">
+      <div className="bg-background grid grid-cols-2 md:grid-cols-5 flex-1">
         {isLoading && (
           <div className="col-span-2 md:col-span-5 p-12 flex items-center justify-center text-muted-foreground text-sm tracking-wide">
             Loading prayer times…
@@ -196,12 +198,12 @@ export function PrayerTimes() {
             return (
               <div
                 key={p.name}
-                className={`p-4 md:p-12 pb-10 border-r border-border flex flex-col items-center text-center gap-4 cursor-default transition-colors relative ${
+                className={`p-4 md:p-12 pb-10 border-r border-border flex flex-col items-center text-center gap-4 cursor-default transition-colors relative last:col-span-2 md:last:col-span-1 ${
                   isActive ? "bg-muted" : "hover:bg-muted"
                 }`}
               >
                 {isActive && (
-                  <span className="absolute bottom-0 left-0 w-full h-0.75 bg-secondary" />
+                  <span className="absolute bottom-0 left-0 w-full h-1 bg-secondary" />
                 )}
                 <div className="font-serif text-muted-foreground text-xl leading-none">
                   {p.arabic}
@@ -216,7 +218,7 @@ export function PrayerTimes() {
                   <div className="text-xs">{f.ap}</div>
                 </div>
                 {isActive && (
-                  <Badge className="absolute top-8 right-6 bg-secondary text-secondary-foreground text-[0.58rem] tracking-wider px-2 py-0.5 rounded-sm w-fit">
+                  <Badge className="absolute top-2 right-2 md:top-8 md:right-6 bg-secondary text-secondary-foreground text-[0.58rem] tracking-wider px-2 py-0.5 rounded-sm w-fit">
                     Now
                   </Badge>
                 )}

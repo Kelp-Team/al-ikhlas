@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { TimePicker } from "@/components/ui/time-picker";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select";
 import { createEvent, updateEvent } from "@/lib/actions/events";
 
 interface EventData {
@@ -122,15 +123,15 @@ export function EventForm({
         </div>
         <div className="grid gap-2">
           <Label htmlFor="featured">Featured</Label>
-          <select
-            id="featured"
-            name="featured"
-            defaultValue={event?.featured ? "true" : "false"}
-            className="h-8 w-full rounded-none border border-input bg-transparent px-2.5 py-1 text-xs outline-none focus-visible:border-ring focus-visible:ring-1 focus-visible:ring-ring/50"
-          >
-            <option value="false">No</option>
-            <option value="true">Yes</option>
-          </select>
+          <Select name="featured" defaultValue={event?.featured ? "true" : "false"}>
+            <SelectTrigger>
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="false">No</SelectItem>
+              <SelectItem value="true">Yes</SelectItem>
+            </SelectContent>
+          </Select>
         </div>
       </div>
 

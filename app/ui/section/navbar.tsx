@@ -3,12 +3,14 @@
 import { useState } from "react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 
 const navLinks = [
   { href: "#prayers", label: "Prayer Times" },
   { href: "#events", label: "Events" },
   { href: "#facilities", label: "Facilities" },
   { href: "#about", label: "About" },
+  { href: "/zakat", label: "Zakat Calculator" },
 ];
 
 export function Navbar() {
@@ -25,11 +27,7 @@ export function Navbar() {
         <span className="sm:hidden">Al-Hikmah</span>
       </Link>
 
-      <button
-        className="md:hidden p-2 text-primary"
-        onClick={() => setIsOpen(!isOpen)}
-        aria-label="Toggle menu"
-      >
+      <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu">
         <svg
           width="24"
           height="24"
@@ -44,7 +42,7 @@ export function Navbar() {
             <path d="M4 6h16M4 12h16M4 18h16" />
           )}
         </svg>
-      </button>
+      </Button>
 
       <div
         className={cn(
@@ -65,13 +63,9 @@ export function Navbar() {
           ))}
         </div>
 
-        <Link
-          href="#"
-          className="bg-primary text-primary-foreground hover:bg-primary-mid text-xs tracking-widest px-5 py-2 rounded-sm no-underline"
-          onClick={() => setIsOpen(false)}
-        >
+        <Button render={<Link href="#" />} className="tracking-widest text-xs" onClick={() => setIsOpen(false)}>
           Declare Mosque
-        </Link>
+        </Button>
       </div>
     </nav>
   );

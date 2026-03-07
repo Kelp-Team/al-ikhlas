@@ -45,7 +45,7 @@ export default function RegisterPage() {
   }
 
   return (
-    <div className="w-full max-w-sm border border-border bg-white p-6">
+    <div className="w-full">
       <h1 className="mb-6 text-center text-sm font-semibold tracking-wide text-primary">
         Create Account
       </h1>

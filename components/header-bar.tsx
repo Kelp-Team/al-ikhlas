@@ -12,13 +12,6 @@ import {
 } from "@/components/ui/popover";
 import { Button } from "./ui/button";
 
-const navLinks = [
-  { href: "#prayers", label: "Prayer Times" },
-  { href: "#events", label: "Events" },
-  { href: "#facilities", label: "Facilities" },
-  { href: "#about", label: "About" },
-];
-
 export function HeaderBar() {
   const { data: session, isPending } = useSession();
   const router = useRouter();
@@ -42,17 +35,12 @@ export function HeaderBar() {
         />
       </Link>
 
-      <div className="flex gap-8">
-        {navLinks.map((link) => (
-          <Link
-            key={link.href}
-            href={link.href}
-            className="text-muted-foreground hover:text-primary text-[0.78rem] tracking-[0.08em] transition-colors no-underline"
-          >
-            {link.label}
-          </Link>
-        ))}
-      </div>
+      <Link
+        href="/zakat"
+        className="text-muted-foreground hover:text-foreground text-sm transition-colors"
+      >
+        Zakat Calculator
+      </Link>
 
       {isPending ? null : session ? (
         <Popover>
@@ -84,12 +72,9 @@ export function HeaderBar() {
           </PopoverContent>
         </Popover>
       ) : (
-        <Link
-          href="/login"
-          className="bg-primary text-primary-foreground hover:bg-primary/80 text-[0.75rem] tracking-widest px-5 py-2 rounded-sm no-underline transition-colors"
-        >
+        <Button render={<Link href="/login" />} className="tracking-widest">
           Login
-        </Link>
+        </Button>
       )}
     </nav>
   );
