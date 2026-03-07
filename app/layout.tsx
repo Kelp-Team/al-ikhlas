@@ -1,21 +1,11 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, JetBrains_Mono } from "next/font/google";
+import { Funnel_Display } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/components/providers";
 
-const jetbrainsMono = JetBrains_Mono({
+const funnelDisplay = Funnel_Display({
   subsets: ["latin"],
   variable: "--font-sans",
-});
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
@@ -29,10 +19,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`h-full overflow-hidden`}>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased h-full overflow-hidden`}
-      >
+    <html
+      lang="en"
+      className={`${funnelDisplay.variable} h-full overflow-hidden`}
+    >
+      <body>
         <Providers>{children}</Providers>
       </body>
     </html>
