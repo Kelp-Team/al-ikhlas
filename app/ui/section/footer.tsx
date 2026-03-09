@@ -13,11 +13,6 @@ import {
 
 const footerCols = [
   {
-    href: "",
-    logo: "/logo.png",
-    logoAlt: "Masjid Al-Ikhlas Seksyen 13",
-  },
-  {
     href: "https://krackeddevs.com/",
     logo: "/kdlogodev.svg",
     logoAlt: "KrackedDevs",
@@ -116,26 +111,29 @@ export function Footer() {
             ))}
           </div>
         </div>
-
-        {/* Nav columns */}
-        {footerCols.map((col, i) => (
-          <div key={i} className="footer-col md:col-start-4">
-            <h4 className="text-secondary text-[0.62rem] tracking-[0.2em] uppercase mb-4.5">
-              {col.title}
-            </h4>
-            <Link href={col.href} target="_blank" rel="noopener noreferrer">
-              <Image src={col.logo} alt={col.logoAlt} width={120} height={40} />
-            </Link>
-          </div>
-        ))}
       </div>
 
       <div className="flex justify-between items-center flex-wrap gap-3">
         <div className="text-primary-foreground/25 text-sm">
-          © 2026 Masjid Al-Ikhlas Seksyen 13 · Built for RC26
+          © 2026 Masjid Al-Ikhlas Seksyen 13 · Built for RC26 · KrackedDevs
         </div>
         <div className="font-serif text-primary-foreground/20 text-lg tracking-wide">
-          بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ
+          {footerCols.map((col, i) => (
+            <Link
+              key={i}
+              href={col.href}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src={col.logo}
+                alt={col.logoAlt}
+                width={100}
+                height={32}
+                className="opacity-40 hover:opacity-70 transition-opacity"
+              />
+            </Link>
+          ))}
         </div>
       </div>
     </footer>
