@@ -9,8 +9,8 @@ const funnelDisplay = Funnel_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Masjid Al-Ikhlas Sekssyen 13",
-  description: "Masjid Al-Ikhlas Sekssyen 13",
+  title: "Masjid Al-Ikhlas Seksyen 13",
+  description: "Masjid Al-Ikhlas Seksyen 13",
 };
 
 export default function RootLayout({
