@@ -53,7 +53,11 @@ export function Facilities() {
                 {fac.icon}
               </div>
               {fac.href && (
-                <Button variant="outline" size="sm" render={<Link href={fac.href} />} className="text-secondary border-secondary/30 rounded-full hover:bg-secondary/10">
+                <Button
+                  variant="secondary"
+                  size="sm"
+                  render={<Link href={fac.href} />}
+                >
                   Book
                 </Button>
               )}

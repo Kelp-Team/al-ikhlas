@@ -217,11 +217,6 @@ export function PrayerTimes() {
                   </div>
                   <div className="text-xs">{f.ap}</div>
                 </div>
-                {isActive && (
-                  <Badge className="absolute top-2 right-2 md:top-8 md:right-6 bg-secondary text-secondary-foreground text-[0.58rem] tracking-wider px-2 py-0.5 rounded-sm w-fit">
-                    Now
-                  </Badge>
-                )}
               </div>
             );
           })}
