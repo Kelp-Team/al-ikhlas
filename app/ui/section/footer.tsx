@@ -1,4 +1,5 @@
 import { GeometricPattern } from "./geometric-pattern";
+import Image from "next/image";
 import Link from "next/link";
 import {
   YoutubeLogo,
@@ -12,8 +13,14 @@ import {
 
 const footerCols = [
   {
-    title: "RC26 Hackathon",
-    links: ["Join Discord", "Submit Project"],
+    href: "",
+    logo: "/logo.png",
+    logoAlt: "Masjid Al-Ikhlas Seksyen 13",
+  },
+  {
+    href: "https://krackeddevs.com/",
+    logo: "/kdlogodev.svg",
+    logoAlt: "KrackedDevs",
   },
 ];
 
@@ -112,19 +119,13 @@ export function Footer() {
 
         {/* Nav columns */}
         {footerCols.map((col, i) => (
-          <div key={i} className="footer-col">
+          <div key={i} className="footer-col md:col-start-4">
             <h4 className="text-secondary text-[0.62rem] tracking-[0.2em] uppercase mb-4.5">
               {col.title}
             </h4>
-            {col.links.map((link, j) => (
-              <Link
-                key={j}
-                href="#"
-                className="block text-primary-foreground/45 text-sm mb-2.5 hover:text-primary-foreground transition-colors no-underline"
-              >
-                {link}
-              </Link>
-            ))}
+            <Link href={col.href} target="_blank" rel="noopener noreferrer">
+              <Image src={col.logo} alt={col.logoAlt} width={120} height={40} />
+            </Link>
           </div>
         ))}
       </div>
